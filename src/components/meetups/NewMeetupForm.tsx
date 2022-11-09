@@ -3,7 +3,7 @@ import "./NewMeetupForm.css";
 import { useRef } from "react";
 
 export const NewMeetupForm = () => {
-  const titleInputRef = useRef<any | undefined>();
+  const titleInputRef = useRef<any>();
   const imageInputRef = useRef<any | undefined>();
   const addressInputRef = useRef<any | undefined>();
   const descriptionInputRef = useRef<any | undefined>();
@@ -23,7 +23,7 @@ export const NewMeetupForm = () => {
       description: enteredDescription,
 
     }
-    console.log(meetupData);
+    console.log(descriptionInputRef, meetupData);
     
   }
   return (
@@ -42,12 +42,13 @@ export const NewMeetupForm = () => {
           <input type="text" required id="address" ref={addressInputRef}/>
         </div>
         <div className="control">
-          <label htmlFor="description" ref={descriptionInputRef}>Meetup Description</label>
+          <label htmlFor="description" >Meetup Description</label>
           <textarea
             name="control"
             id="description"
             required
             rows={5}
+            ref={descriptionInputRef}
           ></textarea>
           <div className="actions">
             <button>Add Meetup</button>
