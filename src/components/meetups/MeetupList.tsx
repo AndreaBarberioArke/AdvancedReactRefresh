@@ -15,6 +15,7 @@ export const MeetupList: React.FC<Props> = (props) => {
       {props.meetups.map((meetup: Props) => (
         <MeetupItem
           key={meetup.id}
+          id={meetup.id}
           image={meetup.image}
           title={meetup.title}
           description={meetup.description}

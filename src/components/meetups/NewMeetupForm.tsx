@@ -1,9 +1,11 @@
 import Card from "../ui/Card";
 import "./NewMeetupForm.css";
 import { useRef } from "react";
-
-export const NewMeetupForm = () => {
-  const titleInputRef = useRef<any>();
+interface Props {
+  onAddMeetups: any;
+}
+export const NewMeetupForm = (props: Props) => {
+  const titleInputRef = useRef<any| undefined>();
   const imageInputRef = useRef<any | undefined>();
   const addressInputRef = useRef<any | undefined>();
   const descriptionInputRef = useRef<any | undefined>();
@@ -23,7 +25,7 @@ export const NewMeetupForm = () => {
       description: enteredDescription,
 
     }
-    console.log(descriptionInputRef, meetupData);
+   props.onAddMeetups(meetupData); 
     
   }
   return (
